@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2>🧮 Calculator</h2>
+            <p>Choose a calculator</p>
+
+            <button class="mode active" data-mode="standard">Standard</button>
+            <button class="mode" data-mode="scientific">Scientific</button>
+            <button class="mode" data-mode="graph">Graph Plotting</button>
+            <button class="mode" data-mode="programming">Programming</button>
+            <button class="mode" data-mode="units">Unit Conversion</button>
+
+            <p class="sidebar-footer">Python Calculator • Web Edition</p>
+        </aside>
+
+        <main class="main">
+            <header>
+                <h1>Python Calculator</h1>
+                <p>Calculate, explore and convert — all in your browser.</p>
+            </header>
+
+            <section id="standard" class="panel">
+                <h2>Standard Calculator</h2>
+                <div class="calculator">
+                    <div id="display" class="display" aria-live="polite">0</div>
+                    <div id="keys" class="keys">
+                        <button data-action="clear" class="utility">AC</button>
+                        <button data-action="delete" class="utility">⌫</button>
+                        <button data-value="%" class="utility">%</button>
+                        <button data-value="/" class="operator">÷</button>
+
+                        <button data-value="7">7</button>
+                        <button data-value="8">8</button>
+                        <button data-value="9">9</button>
+                        <button data-value="*" class="operator">×</button>
+
+                        <button data-value="4">4</button>
+                        <button data-value="5">5</button>
+                        <button data-value="6">6</button>
+                        <button data-value="-" class="operator">−</button>
+
+                        <button data-value="1">1</button>
+                        <button data-value="2">2</button>
+                        <button data-value="3">3</button>
+                        <button data-value="+" class="operator">+</button>
+
+                        <button data-action="sign">±</button>
+                        <button data-value="0">0</button>
+                        <button data-value=".">.</button>
+                        <button data-action="equals" class="equals">=</button>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="scientific" class="panel hidden">
+               <h2>Scientific Calculator</h2>
+               <p>Calculate trigonometric functions, powers, and logarithms.</p>
+
+              <label for="sci-input">Enter a number</label>
+              <input id="sci-input" type="number" value="30" step="any">
+
+              <label for="angle-mode">Angle mode</label>
+              <select id="angle-mode">
+              <option value="deg">Degrees</option>
+              <option value="rad">Radians</option>
+        </select>
+
+              <div class="tool-buttons">
+                <button data-fn="sqrt">√x</button>
+                <button data-fn="square">x²</button>
+                <button data-fn="cube">x³</button>
+                <button data-fn="sin">sin</button>
+                <button data-fn="cos">cos</button>
+                <button data-fn="tan">tan</button>
+                <button data-fn="asin">sin⁻¹</button>
+                <button data-fn="acos">cos⁻¹</button>
+                <button data-fn="atan">tan⁻¹</button>
+                <button data-fn="log">log₁₀</button>
+                <button data-fn="ln">ln</button>
+                <button data-fn="reciprocal">1/x</button>
+                <button data-fn="exp">eˣ</button>
+                <button data-fn="abs">|x|</button>
+                <button data-fn="factorial">n!</button>
+            </div>
+
+            <p id="sci-result" class="result" aria-live="polite">Result: —</p>
+        </section>
+
+            
+<section id="graph" class="panel hidden">
+    <h2>Graph Plotting</h2>
+    <p>Enter functions separated by semicolons. Use x as the variable.</p>
+
+    <label for="graph-input">Functions</label>
+    <input
+        id="graph-input"
+        value="x^2; x + 2; sin(x)"
+        placeholder="Example: x^2; x + 2; sin(x)"
+    >
+
+    <div class="unit-row">
+        <div>
+            <label for="graph-min">X minimum</label>
+            <input id="graph-min" type="number" value="-10">
+        </div>
+        <div>
+            <label for="graph-max">X maximum</label>
+            <input id="graph-max" type="number" value="10">
+        </div>
+    </div>
+
+    <button id="graph-button" class="primary">Plot Graph</button>
+    <div id="graph-output" class="result"></div>
+</section>
+
+            <section id="programming" class="panel hidden">
+                <h2>Programming Converter</h2>
+                <label for="program-number">Enter a whole number</label>
+                <input id="program-number" type="number" min="0" step="1" value="10">
+                <button id="program-button" class="primary">Convert</button>
+                <div id="program-output" class="result"></div>
+            </section>
+
+            <section id="units" class="panel hidden">
+                <h2>Unit Conversion</h2>
+                <label for="unit-value">Value</label>
+                <input id="unit-value" type="number" value="1" step="any">
+
+                <div class="unit-row">
+                    <select id="unit-from">
+                        <option value="km">Kilometers</option>
+                        <option value="m">Meters</option>
+                        <option value="cm">Centimeters</option>
+                        <option value="mi">Miles</option>
+                    </select>
+                    <span>to</span>
+                    <select id="unit-to">
+                        <option value="m">Meters</option>
+                        <option value="km">Kilometers</option>
+                        <option value="cm">Centimeters</option>
+                        <option value="mi">Miles</option>
+                    </select>
+                </div>
+
+                <button id="unit-button" class="primary">Convert</button>
+                <p id="unit-result" class="result"></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

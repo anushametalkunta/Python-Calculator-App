@@ -1,4 +1,3 @@
-
 __pycache__/
 *.py[cod]
 .venv/
@@ -8,3 +7,5 @@ dist/
 *.spec
 .env
 .pytest_cache/
+instance/
+*.db
